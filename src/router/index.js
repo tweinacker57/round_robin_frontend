@@ -4,6 +4,7 @@ import Home from '../views/Home.vue';
 import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
+import Club from "../views/Club.vue";
 
 
 Vue.use(VueRouter)
@@ -29,6 +30,12 @@ const routes = [
     name: "Logout",
     component: Logout
   },
+  {
+    path: "/clubs",
+    name: "Club",
+    component: Club
+  }
+
 ]
 
 const router = new VueRouter({

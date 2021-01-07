@@ -1,8 +1,9 @@
 <template>
   <div class="home">
     <h1>{{ message }}</h1>
-    <div v-for="bookUser in book">
-      {{ book.all }}
+    <div v-for="bookUser in bookUsers">
+      {{ bookUser.book.name }}
+
     </div>
   </div>
 </template>
@@ -16,16 +17,16 @@ export default {
   data: function () {
     return {
       message: "Round Robin- The Book App",
-      books: [],
+      bookUsers: [],
     };
   },
   created: function () {
-    this.bookUsers();
+    this.bookUsersIndex();
   },
   methods: {
     bookUsersIndex: function () {
       axios.get("/api/book_users").then((response) => {
-        this.booksUser = response.data;
+        this.bookUsers = response.data;
       });
     },
   },

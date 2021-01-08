@@ -5,13 +5,14 @@ import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
 import Profile from "../views/Profile.vue";
+import Books from "../views/Books.vue";
 
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/book_users',
+    path: '/home',
     name: 'Home',
     component: Home
   },
@@ -34,6 +35,11 @@ const routes = [
     path: "/profile",
     name: "Profile",
     component: Profile
+  },
+  {
+    path: "/books",
+    name: "Books",
+    component: Books
   }
 
 ]

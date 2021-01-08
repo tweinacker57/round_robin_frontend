@@ -1,8 +1,9 @@
 <template>
-  <div class="home">
+  <div class="profile">
     <h1>{{ message }}</h1>
     <div v-for="bookUser in bookUsers">
       {{ bookUser.book.name }}
+      
 
     </div>
   </div>
@@ -16,7 +17,7 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      message: "Round Robin- The Book App",
+      message: "Profile",
       bookUsers: [],
     };
   },

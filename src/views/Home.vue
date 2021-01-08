@@ -1,9 +1,6 @@
 <template>
   <div class="home">
     <h1>{{ message }}</h1>
-    <div v-for="bookUser in book">
-      {{ book.all }}
-    </div>
   </div>
 </template>
 
@@ -11,24 +8,15 @@
 </style>
 
 <script>
-import axios from "axios";
 export default {
   data: function () {
     return {
-      message: "Round Robin- The Book App",
-      books: [],
+      message: "Welcome to Round Robin",
     };
   },
-  created: function () {
-    this.bookUsers();
-  },
-  methods: {
-    bookUsersIndex: function () {
-      axios.get("/api/book_users").then((response) => {
-        this.booksUser = response.data;
-      });
-    },
-  },
+  created: function () {},
+  methods: {},
 };
 </script>
+
 

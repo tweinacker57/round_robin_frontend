@@ -7,12 +7,12 @@
      <button v-on:click="showBook(book)">Add Book To Your Profile</button>
 
     </div>
-    <dialog id="photo-details">
+    <dialog id="book-status">
       <form method="dialog">
         <h1>Book info</h1>
         <p>Reading Status: <input v-model="status" type="text"></p>
         <p>Rating: <input v-model="rating" type="text"></p>
-        <button>Submit</button>
+        <button v-on:click="addBook()">Submit</button>
       </form>
     </dialog>
   </div>
@@ -45,8 +45,20 @@ export default {
       });
     },
     showBook: function (book) {
-      this.currentBook = book;
-      document.querySelector("#photo-details").showModal();
+      this.addBook = book;
+      document.querySelector("#book-status").showModal();
+    },
+    addBook: function () {
+      console.log("adding book");
+      var params = {
+        book_id: this.currentBook,
+        status: this.status,
+        rating: this.rating,
+      };
+      axios.post("/api/book_users", params).then((response) => {
+        console.log(response.data);
+        this.$router.push(response.data);
+      });
     },
   },
 };

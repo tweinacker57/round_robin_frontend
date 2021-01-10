@@ -1,16 +1,57 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/home">Home</router-link> |
-      <router-link to="/profile">Profile</router-link> |
-      <router-link to="/books">Books</router-link> |
-      <router-link to="/signup">Signup</router-link> |
-      <router-link to="/login">Login</router-link>|
-      <router-link to="/logout">Logout</router-link>|
+    
+      <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/profile">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/books">Books</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/logout">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/signup">Sign Up</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <router-view/>
+  </nav>
+
+  <header class="bg-primary text-white">
+    <div class="container text-center">
+      <h1>Welcome to Round Robin</h1>
+      <p class="lead">The Book App</p>
+    </div>
+  </header>
+  
+  <router-view />
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
   </div>
 </template>
+
 
 <style>
 #app {

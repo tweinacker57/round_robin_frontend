@@ -4,6 +4,9 @@
     
     <div v-for="book in books">
       {{ book.name }}
+      <br>
+      {{ "-" + book.author }}
+      <br>
      <button v-on:click="showBook(book)">Add Book To Your Profile</button>
 
     </div>
@@ -12,7 +15,7 @@
         <h1>Book info</h1>
         <p>Reading Status: <input v-model="status" type="text"></p>
         <p>Rating: <input v-model="rating" type="text"></p>
-        <button v-on:click="addBook()">Submit</button>
+        <button v-on:click="booksCreate()">Submit</button>
       </form>
     </dialog>
   </div>
@@ -26,7 +29,7 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      message: "In books",
+      message: "Book Finder",
       books: [],
       currentBook: {},
       status: "",
@@ -45,13 +48,14 @@ export default {
       });
     },
     showBook: function (book) {
-      this.addBook = book;
+      console.log("showing book");
+      this.currentBook = book;
       document.querySelector("#book-status").showModal();
     },
-    addBook: function () {
+    booksCreate: function () {
       console.log("adding book");
       var params = {
-        book_id: this.currentBook,
+        book_id: this.currentBook.id,
         status: this.status,
         rating: this.rating,
       };

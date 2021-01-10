@@ -3,8 +3,9 @@
     <h1>{{ message }}</h1>
     <div v-for="bookUser in bookUsers">
       {{ bookUser.book.name }}
+      <br>
+      {{ "-" + bookUser.book.author }}
       
-
     </div>
   </div>
 </template>

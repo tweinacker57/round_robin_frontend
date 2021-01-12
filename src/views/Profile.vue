@@ -2,10 +2,16 @@
   <div class="profile">
     <h1>{{ message }}</h1>
     <div v-for="bookUser in bookUsers">
-      {{ bookUser.book.name }}
+      {{ "Title: " + bookUser.book.name }}
       <br>
-      {{ "-" + bookUser.book.author }}
-      
+      {{ "Author: " + bookUser.book.author }}
+      <br>
+      {{ "Status: " + bookUser.status }}
+      <br>
+      {{ "Rating: " + bookUser.rating + " stars" }}
+      <br>
+      <br>
+      <br>
     </div>
   </div>
 </template>
@@ -20,6 +26,9 @@ export default {
     return {
       message: "Profile",
       bookUsers: [],
+      currentBook: {},
+      status: "",
+      rating: "",
     };
   },
   created: function () {

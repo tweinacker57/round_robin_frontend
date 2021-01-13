@@ -33,6 +33,7 @@
         <option value="5">Five Stars</option>
         </select></p>
         <button v-on:click="updateStatus(currentBook)">Update</button>
+        <button v-on:click="destroyBook(currentBook)">Delete Book From Profile</button>
         <button>Close</button>
       </form>
     </dialog>
@@ -81,6 +82,14 @@ export default {
         .then((response) => {
           console.log("status update", response);
           this.currentBook = {};
+        });
+    },
+    destroyBook: function (bookUser) {
+      axios
+        .delete("/api/book_users/" + this.currentBook.id)
+        .then((response) => {
+          console.log("destroying book", response);
+          this.$router.push("/profile");
         });
     },
   },

@@ -32,8 +32,7 @@
       </div>
     </div>
   </nav>
-
-  <header class="bg-primary text-white">
+  <header class="bg-secondary text-black">
     <div class="container text-center">
       <h1>Welcome to Round Robin</h1>
       <p class="lead">The Book App</p>
@@ -43,7 +42,7 @@
   <router-view />
 
   <!-- Footer -->
-  <footer class="py-5 bg-dark">
+  <footer class="py-6 bg-dark">
     <div class="container">
       <p class="m-0 text-center text-white">Round Robin 2021</p>
     </div>
@@ -59,7 +58,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #05192b;
 }
 
 #nav {
@@ -68,7 +67,7 @@
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #0a223a;
 }
 
 #nav a.router-link-exact-active {

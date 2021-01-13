@@ -1,13 +1,35 @@
 <template>
   <div class="books">
+    <br>
     <h1>{{ message}}</h1>
+    <br>
+    <br>
+    <br>
+    <form v-on:submit.prevent="submit()">
+      <h1>Make a new book</h1>
+      <div class="form-group">
+        <label>Title:</label> 
+        <input type="text" class="form-control" v-model="name">
+      </div>
+      <div class="form-group">
+        <label>Author:</label>
+        <input type="text" class="form-control" v-model="author">
+      </div>
+      <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+    <br>
+    <br>
     <br>
     <div v-for="book in books">
       {{"Title: " + book.name }}
       <br>
       {{ "Author: " + book.author }}
       <br>
+      <br>
      <button v-on:click="showBook(book)">Add Book To Your Profile</button>
+     <br>
+     <br>
+     <br>
     </div>
     <dialog id="book-status">
       <form method="dialog">
@@ -26,7 +48,8 @@
         <option value="4">Four Stars</option>
         <option value="5">Five Stars</option>
         </select></p>
-        <button v-on:click="booksCreate()">Submit</button>
+        <button v-on:click="booksCreate()">Create Book</button>
+        <button>Close</button>
       </form>
     </dialog>
   </div>
@@ -40,11 +63,13 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      message: "Book Finder",
+      message: "Book Log",
       books: [],
       currentBook: {},
       status: "",
       rating: "",
+      author: "",
+      name: "",
     };
   },
   created: function () {
@@ -62,6 +87,15 @@ export default {
       console.log("showing book");
       this.currentBook = book;
       document.querySelector("#book-status").showModal();
+    },
+    submit: function () {
+      var params = {
+        name: this.name,
+        author: this.author,
+      };
+      axios.post("/api/books", params).then((response) => {
+        this.$router.push(response.data);
+      });
     },
     booksCreate: function () {
       console.log("adding book");

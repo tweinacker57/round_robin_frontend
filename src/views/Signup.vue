@@ -21,6 +21,8 @@
         <label>Password confirmation:</label>
         <input type="password" class="form-control" v-model="passwordConfirmation">
       </div>
+      <br>
+      <br>
       <input type="submit" class="btn btn-primary" value="Submit">
     </form>
   </div>
@@ -36,6 +38,7 @@ export default {
       password: "",
       passwordConfirmation: "",
       errors: [],
+      status: "",
     };
   },
   methods: {
@@ -52,7 +55,11 @@ export default {
           this.$router.push("/login");
         })
         .catch((error) => {
-          this.errors = error.response.data.errors;
+          this.$alert(
+            "Password must contain at least 1 Uppercase letter, 1 lowercase letter, 1 number, and 1 special character"
+          );
+          console.log(error.response.status);
+          this.status = error.response.status;
         });
     },
   },
